@@ -14,7 +14,7 @@ export default class App extends Component {
 
         <Layout>
             <Helmet>
-              <title>Melanie Nanan Wallace</title>
+              <title>Melanie L. Wallace RC, MSW</title>
             </Helmet>
 
             <Route exact path='/' component={Home} />

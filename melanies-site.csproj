@@ -41,6 +41,15 @@
     <None Remove="ClientApp\src\components\Home.js" />
     <None Remove="ClientApp\src\components\Counter.js" />
     <None Remove="ClientApp\src\components\FetchData.js" />
+    <None Remove="ClientApp\src\components\NavMenu.js" />
+    <None Remove="ClientApp\src\components\NavMenu.js" />
+    <None Remove="ClientApp\src\components\NavMenu.css" />
+    <None Remove="ClientApp\src\components\Home.css" />
+    <None Remove="ClientApp\src\components\NavMenu.js" />
+    <None Remove="ClientApp\src\components\NavMenu.js" />
+    <None Remove="ClientApp\src\components\Home.js" />
+    <None Remove="ClientApp\public\index.html" />
+    <None Remove="ClientApp\src\App.js" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

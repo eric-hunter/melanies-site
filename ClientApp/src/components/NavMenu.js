@@ -11,8 +11,9 @@ export class NavMenu extends Component {
     return (
       <Navbar fixedTop fluid collapseOnSelect>
         <Navbar.Header>
-          <Navbar.Brand>
-          </Navbar.Brand>
+            <Navbar.Brand>
+                Melanie L. Wallace RC, MSW
+            </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>

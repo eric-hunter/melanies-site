@@ -5,8 +5,13 @@
 .navbar,
 .navbar-default {
     background-image: linear-gradient(to right,Purple 0,MediumVioletRed 100%) !important; /* override background image gradient w/ flat color */
-    opacity: .8;
     color: black !important;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Highlighting rules for nav menu items */
@@ -20,8 +25,9 @@
 }
 
 .navbar-default .navbar-nav > li > a {
-    color:black;
-    font-weight:bold;
+    color: black;
+    font-weight: bold;
+    font-family: 'Lexend Zetta', sans-serif;
     opacity: 1;
 }
 

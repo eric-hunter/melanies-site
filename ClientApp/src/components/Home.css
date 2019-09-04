@@ -7,20 +7,77 @@
 #pic {
     height: auto;
     max-width: 100%;
-    max-height:300px;
+    max-height: 300px;
     margin-top: 10%;
-    margin-left:0%;
-
+    margin-left: 0%;
 }
 
-.text-container {
-    font-family: Arial, Helvetica, sans-serif;
+.bio-container {
     text-align: center;
-    background-color:thistle;
-    margin-top:5%;
+    background-color: MediumVioletRed;
+    margin-top: 5%;
+    padding-top: 1%;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12pt;
+    color: white;
 }
 
 #bio {
-    text-align: left;   
+    text-align: left;
     padding: 20px;
+}
+
+.education-container {
+    background-color: MediumVioletRed;
+    margin-top: 5%;
+    padding-top: 1%;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    min-height: 100px;
+}
+
+hr {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+    hr:before { /* Not really supposed to work, but does */
+        display: block;
+        content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+    }
+
+.training-container {
+    background-color: MediumVioletRed;
+    margin-top: 5%;
+    padding-top: 1%;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+.memberships-container {
+    background-color: MediumVioletRed;
+    margin-top: 5%;
+    padding-top: 1%;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+.info-header {
+    text-align: center;
+    font-family: 'Lexend Exa', sans-serif;
+}
+
+.info-container ul {
+    margin-top: -30px;
+    min-height: 150px;
+    font-size: 12pt;
 }
