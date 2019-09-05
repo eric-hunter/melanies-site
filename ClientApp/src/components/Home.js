@@ -73,7 +73,9 @@ export class Home extends Component {
                               <li>Naloxone (Narcan)</li>
                               <li>Domestic Violence / Sexual Assault (16 yrs)</li>
                               <li>CPR /First Aid
-                                  <br/>(Adult/Child/Infant & Pet)</li>
+                                  <br />(Adult/Child/Infant & Pet)</li>
+                              <li>Mental Health First Aid
+                                  <br/>(Adult & Child / Adolescent)</li>
                           </ul>
 
                         </div>
