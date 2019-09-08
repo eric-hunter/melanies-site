@@ -1,11 +1,14 @@
-﻿.navbar li .glyphicon {
+﻿
+.navbar li .glyphicon {
     margin-right: 10px;
 }
 
 .navbar,
 .navbar-default {
     background-image: linear-gradient(to right,Purple 0,MediumVioletRed 100%) !important; /* override background image gradient w/ flat color */
-    color: black !important;
+    -webkit-box-shadow: 10px 0px 5px 0px gray;
+    -moz-box-shadow: 10px 0px 5px 0px gray;
+    box-shadow: 10px 0px 5px 0px gray;
 }
 
 .navbar-brand {
@@ -27,51 +30,63 @@
 .navbar-default .navbar-nav > li > a {
     color: black;
     font-weight: bold;
-    font-family: 'Lexend Zetta', sans-serif;
+    font-family: 'Varela Round', sans-serif;
     opacity: 1;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-    color: white;
-}
+    .navbar-default .navbar-nav > li > a:hover {
+        color: white;
+    }
 
 @media (min-width: 768px) {
-        /* On large screens, convert the nav menu to a vertical sidebar */
+    /* On large screens, convert the nav menu to a vertical sidebar */
     .navbar {
         height: 100%;
         width: calc(25% - 20px);
+        -webkit-box-shadow: 10px 0px 10px 0px gray;
+        -moz-box-shadow: 10px 0px 10px 0px gray;
+        box-shadow: 10px 0px 10px 0px gray;
     }
+
     .navbar {
         border-radius: 0;
         border-width: 0;
         height: 100%;
     }
+
     .navbar-header {
         float: none;
     }
+
     .navbar .navbar-collapse {
         border-top: 1px solid #444;
         padding: 0;
     }
+
     .navbar .container-fluid {
         padding: 0;
         margin: 0;
     }
-    .navbar .container-fluid .navbar-brand {
-        margin: 0;
-    }
+
+        .navbar .container-fluid .navbar-brand {
+            margin: 0;
+        }
+
     .navbar ul {
         float: none;
     }
+
     .navbar li {
         float: none;
         font-size: 15px;
         margin: 6px;
     }
-    .navbar li a {
-        padding: 10px 16px;
-        border-radius: 4px;
-    }
+
+        .navbar li a {
+            padding: 10px 16px;
+            border-radius: 4px;
+        }
+
     .navbar a {
         /* If a menu item's text is too long, truncate it */
         width: 100%;
@@ -80,4 +95,3 @@
         text-overflow: ellipsis;
     }
 }
-
