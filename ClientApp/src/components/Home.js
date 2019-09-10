@@ -3,7 +3,7 @@ import { Col, Grid, Row } from 'react-bootstrap';
 
 import './Home.css';
 
-import Pic from '../images/pic.jpg'
+import Pic from '../images/main-pic.jpg'
 
 export class Home extends Component {
   displayName = Home.name

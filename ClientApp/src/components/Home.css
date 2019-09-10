@@ -7,7 +7,7 @@
     height: auto;
     max-width: 100%;
     max-height: 300px;
-    margin-top: 10%;
+    margin-top: 25%;
     margin-left: 0%;
 }
 
@@ -26,7 +26,6 @@
 }
 
 .education-container {
-    background-color: MediumVioletRed;
     margin-top: 5%;
     padding-top: 1%;
     font-family: 'Varela Round', sans-serif;
@@ -35,26 +34,10 @@
 }
 
 hr {
-    height: 30px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
+    border-top: 3px double #8c8b8b;
 }
 
-    hr:before { /* Not really supposed to work, but does */
-        display: block;
-        content: "";
-        height: 30px;
-        margin-top: -31px;
-        border-style: solid;
-        border-color: black;
-        border-width: 0 0 1px 0;
-        border-radius: 20px;
-    }
-
 .training-container {
-    background-color: MediumVioletRed;
     margin-top: 5%;
     padding-top: 1%;
     font-family: 'Varela Round', sans-serif;
@@ -62,7 +45,6 @@ hr {
 }
 
 .memberships-container {
-    background-color: MediumVioletRed;
     margin-top: 5%;
     padding-top: 1%;
     font-family: 'Varela Round', sans-serif;
@@ -75,12 +57,10 @@ hr {
 }
 
 .info-container {
-    background-color: whitesmoke;
     color: darkslategray;
 }
 
     .info-container ul {
-        margin-top: -30px;
         min-height: 170px;
         font-size: 12pt;
         width: 300px;
