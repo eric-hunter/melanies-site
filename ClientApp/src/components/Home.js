@@ -4,6 +4,7 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import './Home.css';
 
 import Pic from '../images/main-pic.jpg'
+import Penwheel from '../images/upper-penwheel.png'
 
 export class Home extends Component {
   displayName = Home.name
@@ -11,6 +12,13 @@ export class Home extends Component {
   render() {
       return (
           <div>
+              <Row>
+                  <Col lg={12}>
+                      <div class='photo-container'>
+                          <img id='penwheel' src={Penwheel}/>
+                      </div>
+                  </Col>
+              </Row>
             <Row>
                 <Col sm={12} md={6} lg={4}>
                     {/* Pic */}
@@ -39,13 +47,16 @@ export class Home extends Component {
 
               </Row>
               <br/><br/>
-                <Row>
-                    <Col sm={12} md={12} lg={4}>
-                        <div class="education-container info-container">
-                            <h3 class="info-header">
-                                Education
+              <Row>
+                  <Col sm={12} md={12} lg={4}>
+                      <div class="education-container info-container">
+                          
+                          <h3 class="info-header">
+                              <br/>
+                              Education
+                              <br />
+                              &nbsp;
                             </h3>
-                            <hr />
                             <div>
                               <ul>
                                   <li>Clark Atlanta University, MSW
@@ -66,9 +77,11 @@ export class Home extends Component {
                     <Col sm={12} md={12} lg={4}>
                         <div class="training-container info-container">
                           <h3 class="info-header">
+                              <br/>
                               Training
+                              <br />
+                              &nbsp;
                           </h3>
-                          <hr/>
                           <ul>
                               <li>Naloxone (Narcan)</li>
                               <li>Domestic Violence / Sexual Assault (16 yrs)</li>
@@ -84,10 +97,12 @@ export class Home extends Component {
 
                     <Col sm={12} md={12} lg={4}>
                         <div class="memberships-container info-container">
-                            <h3 class="info-header">
+                          <h3 class="info-header">
+                              <br/>
                               Memberships
+                              <br />
+                              &nbsp;
                             </h3>
-                          <hr/>
                           <ul>
                               <li>NASW (10+ years)</li>
                               <li>NGLCC - In Process</li>

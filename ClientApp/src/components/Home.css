@@ -1,4 +1,11 @@
-﻿
+﻿#penwheel {
+    height: auto;
+    width: 100%;
+    max-height: 500px;
+    margin-left: 0%;
+    margin-top: -450px;
+}
+
 .photo-container {
     text-align: center;
 }
@@ -54,6 +61,10 @@ hr {
 .info-header {
     text-align: center;
     font-family: 'Lexend Exa', sans-serif;
+    color: white;
+    width: 140%;
+    margin-left: -20%;
+    background-image: linear-gradient(to bottom,darkcyan 0,DarkTurquoise 100%) !important; /* override background image gradient w/ flat color */
 }
 
 .info-container {
@@ -66,4 +77,5 @@ hr {
         width: 300px;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 20px;
     }
