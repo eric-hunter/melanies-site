@@ -4,7 +4,7 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import './Home.css';
 
 import Pic from '../images/main-pic.jpg'
-import Penwheel from '../images/upper-penwheel.png'
+import Pinwheel from '../images/upper-pinwheel.png'
 
 export class Home extends Component {
   displayName = Home.name
@@ -15,7 +15,7 @@ export class Home extends Component {
               <Row>
                   <Col lg={12}>
                       <div class='photo-container'>
-                          <img id='penwheel' src={Penwheel}/>
+                          <img id='pinwheel' src={Pinwheel}/>
                       </div>
                   </Col>
               </Row>
