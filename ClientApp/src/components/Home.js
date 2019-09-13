@@ -12,13 +12,8 @@ export class Home extends Component {
   render() {
       return (
           <div>
-              <Row>
-                  <Col lg={12}>
-                      <div class='photo-container'>
-                          <img id='pinwheel' src={Pinwheel}/>
-                      </div>
-                  </Col>
-              </Row>
+            <div id='background'></div>
+
             <Row>
                 <Col sm={12} md={6} lg={4}>
                     {/* Pic */}

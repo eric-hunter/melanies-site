@@ -1,4 +1,15 @@
-﻿#pinwheel {
+﻿div#background {
+    position: fixed;
+    width: 130%;
+    height: 1300%;
+    margin-left: 20%;
+    margin-top: -45%;
+    background-image: url(../images/pinwheel.png);
+    opacity: .2;
+    z-index: -10;
+}
+
+#pinwheel {
     height: auto;
     width: 100%;
     max-height: 500px;
@@ -62,8 +73,9 @@ hr {
     text-align: center;
     font-family: 'Lexend Exa', sans-serif;
     color: white;
-    width: 140%;
+    width: 120%;
     margin-left: -20%;
+    /*opacity*/
     background-image: linear-gradient(to bottom,darkcyan 0,DarkTurquoise 100%) !important; /* override background image gradient w/ flat color */
 }
 
