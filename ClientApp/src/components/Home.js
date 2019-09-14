@@ -31,7 +31,7 @@ export class Home extends Component {
                               Social Worker, Advocate, & Educator
                               </h4>
                           <h5>
-                            <i>Ze, Zir, Zem, Zer, they, them</i>
+                            <i>Ze, Zir, Zer, they, them</i>
                           </h5>
                         <h5>
 
