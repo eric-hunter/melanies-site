@@ -12,7 +12,6 @@ export class Home extends Component {
   render() {
       return (
           <div>
-            <div id='background'></div>
 
             <Row>
                 <Col sm={12} md={6} lg={4}>
@@ -29,8 +28,11 @@ export class Home extends Component {
                             Melanie L. Wallace RC, MSW
                         </h2>
                         <h4 id='Title' >
-                            Social Worker, Advocate, & Educator
-                        </h4>
+                              Social Worker, Advocate, & Educator
+                              </h4>
+                          <h5>
+                            <i>Ze, Zir, Zem, Zer, they, them</i>
+                          </h5>
                         <h5>
 
                         </h5>
