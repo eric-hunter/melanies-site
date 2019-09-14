@@ -1,10 +1,10 @@
 ﻿import React, { Component } from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
+import { Section } from './Section.js';
 
 import './Home.css';
 
 import Pic from '../images/main-pic.jpg'
-import Pinwheel from '../images/upper-pinwheel.png'
 
 export class Home extends Component {
   displayName = Home.name
@@ -45,41 +45,28 @@ export class Home extends Component {
               </Row>
               <br/><br/>
               <Row>
-                  <Col sm={12} md={12} lg={4}>
-                      <div class="education-container info-container">
-                          
-                          <h3 class="info-header">
-                              <br/>
-                              Education
-                              <br />
-                              &nbsp;
-                            </h3>
-                            <div>
-                              <ul>
-                                  <li>Clark Atlanta University, MSW
-                                      <br />(Health/Mental Health Focus)
-                                      </li>
-                                  <li>Georgia State University, BSW</li>
-                                  <li>Recovery Coach, CCAR</li>
-                                  <li>Montessori Institute of Atlanta
-                                      <br />(Primary 2.5 to 6+)
-                                      </li>
-                              </ul>
-                            </div>
-
-                        </div>
-
-                    </Col>
-
-                    <Col sm={12} md={12} lg={4}>
-                        <div class="training-container info-container">
-                          <h3 class="info-header">
-                              <br/>
-                              Training
-                              <br />
-                              &nbsp;
-                          </h3>
+                  <Section
+                      headerText={
+                          "Education"
+                      }
+                      ul={
                           <ul>
+                              <li>Clark Atlanta University, MSW
+                                <br />(Health/Mental Health Focus)
+                              </li>
+                              <li>Georgia State University, BSW</li>
+                              <li>Recovery Coach, CCAR</li>
+                              <li>Montessori Institute of Atlanta
+                                <br />(Primary 2.5 to 6+)
+                              </li>
+                          </ul>
+                      }/>
+                  <Section
+                      headerText={
+                          "Training"
+                      }
+                      ul={
+                        <ul>
                               <li>Naloxone (Narcan)</li>
                               <li>Domestic Violence / Sexual Assault (16 yrs)</li>
                               <li>CPR /First Aid
@@ -88,26 +75,18 @@ export class Home extends Component {
                                   <br/>(Adult & Child / Adolescent)</li>
                           </ul>
 
-                        </div>
+                      }/>
 
-                    </Col>
-
-                    <Col sm={12} md={12} lg={4}>
-                        <div class="memberships-container info-container">
-                          <h3 class="info-header">
-                              <br/>
-                              Memberships
-                              <br />
-                              &nbsp;
-                            </h3>
-                          <ul>
+                  <Section
+                      headerText={
+                          "Memberships"
+                      }
+                      ul={
+                        <ul>
                               <li>NASW (10+ years)</li>
                               <li>NGLCC - In Process</li>
                           </ul>
-
-                        </div>
-
-                    </Col>
+                      }/>
                 </Row>
 
           </div>
