@@ -20,17 +20,17 @@ export class NavMenu extends Component {
           <Nav>
             <LinkContainer to={'/'} exact>
               <NavItem>
-                About
+                <Glyphicon glyph='user' /> About
               </NavItem>
             </LinkContainer>
             <LinkContainer to={'/resources'}>
               <NavItem>
-                Resources
+                <Glyphicon glyph='folder-open' /> Resources
               </NavItem>
             </LinkContainer>
             <LinkContainer to={'/contact'}>
               <NavItem>
-                Contact
+                <Glyphicon glyph='envelope' /> Contact
               </NavItem>
             </LinkContainer>
           </Nav>
