@@ -1,0 +1,10 @@
+div.header {
+    background-image: linear-gradient(to bottom,darkcyan 0,DarkTurquoise 100%) !important;
+    color: white;
+    width: 120%;
+    margin-left: -3%;
+    padding-left: 3%;
+    height: 60px;
+    font-size: 30px;
+    padding-top:10px;
+}
