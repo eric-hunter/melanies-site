@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
+import {Button, Glyphicon} from 'react-bootstrap';
 import {Form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 
 import './Contact.css';
@@ -23,14 +23,19 @@ export class Contact extends Component {
         this.setState({ name: e.target.value });
     }
 
+    //TODO: need to call FB method on component load.
+    componentDidMount() {
+        //document.addEventListener('fb_init', e => FB.XFBML.parse());
+    }
+
   render() {
     return (
         <div>
             <br/>
             <br/>
             <Row>
-                <Col lg='12'>
-                    <div class='header'>
+                <Col >
+                    <div className='header'>
                         Contact Me
                     </div>
                 </Col>
@@ -38,10 +43,11 @@ export class Contact extends Component {
             <br/>
             <br/>
             <Row>
-                <Col lg='5' sm='12'>
+                <Col lg='4' sm='12'>
                     <Form>
                         <Row>
-                            <Col lg='1'/>
+                            <Col lg='1'>
+                            </Col>
                             <Col lg='11'>
                                 <FormGroup>
                                     <ControlLabel>Name</ControlLabel>
@@ -86,10 +92,25 @@ export class Contact extends Component {
                         </Row>
                     </Form>
                 </Col>
-                <Col lg='3' sm='12'>
+                <Col lg='4'>
 
+                    <div 
+                        class="fb-page" 
+                        data-href="https://www.facebook.com/ashapridealliance/" 
+                        data-tabs="timeline" 
+                        data-width="" 
+                        data-height="" 
+                        data-small-header="false" 
+                        data-adapt-container-width="true" 
+                        data-hide-cover="false" 
+                        data-show-facepile="true"><blockquote cite="https://www.facebook.com/ashapridealliance/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ashapridealliance/">Asha Pride Alliance</a></blockquote></div>
                 </Col>
-
+                <Col lg='4'>
+                    <div class='side-panel'>
+                        <br/>
+                        <h3><Glyphicon glyph='glyphicon glyphicon-phone'></Glyphicon> &nbsp;&nbsp; 555 - 555 - 5555</h3>
+                    </div>
+                </Col>
             </Row>
         </div>
     );
