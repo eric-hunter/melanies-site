@@ -22,7 +22,11 @@ div.side-panel {
 div.side-panel > span {
     margin-left:7px;
     font-size:14pt;
+}
 
+div.side-panel > span > a {
+    text-decoration: none;
+    color:white;
 }
 
 div.side-panel > span.glyphicon {
