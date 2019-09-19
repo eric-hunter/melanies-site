@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
-import {Button, Glyphicon} from 'react-bootstrap';
-import {Form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
+import {Glyphicon} from 'react-bootstrap';
+import {ContactForm} from './ContactForm.js';
 
 import './Contact.css';
 
@@ -15,17 +15,11 @@ export class Contact extends Component {
             name: ""
         };
 
-        this.changeName = this.changeName.bind(this);
     }
 
-    //TODO: make dynamic instead of function for ever form field.
-    changeName(e) {
-        this.setState({ name: e.target.value });
-    }
-
-    //TODO: need to call FB method on component load.
     componentDidMount() {
-        //document.addEventListener('fb_init', e => FB.XFBML.parse());
+        //react must remove everything when you leave a component. idk
+        window.FB.XFBML.parse();
     }
 
   render() {
@@ -44,55 +38,11 @@ export class Contact extends Component {
             <br/>
             <Row>
                 <Col lg='4' sm='12'>
-                    <Form>
-                        <Row>
-                            <Col lg='1'>
-                            </Col>
-                            <Col lg='11'>
-                                <FormGroup>
-                                    <ControlLabel>Name</ControlLabel>
-                                    <FormControl
-                                        type='text'
-                                        value={this.state.name}
-                                        onChange={this.changeName} />
-
-                                </FormGroup>
-                            </Col>
-                            
-                        </Row>
-                        <Row>
-                            <Col lg='1'/>
-                            <Col lg='11'>
-                                <FormGroup>
-                                    <ControlLabel>Reason For Contacting</ControlLabel>
-                                    <FormControl
-                                        type=''
-                                        value={this.state.name}
-                                        onChange={this.changeName} />
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col lg='1'/>
-                            <Col lg='11'>
-                                <FormGroup>
-                                    <ControlLabel>Email</ControlLabel>
-                                    <FormControl
-                                        type='text'
-                                        value={this.state.name}
-                                        onChange={this.changeName} />
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col lg='1'/>
-                            <Col lg='11'>
-                                <Button type='submit'>Submit</Button>
-                            </Col>
-                        </Row>
-                    </Form>
+                    <ContactForm>
+                    </ContactForm>
                 </Col>
-                <Col lg='4'>
+                <br/>
+                <Col lg='4' md='6'>
 
                     <div 
                         class="fb-page" 
@@ -105,10 +55,12 @@ export class Contact extends Component {
                         data-hide-cover="false" 
                         data-show-facepile="true"><blockquote cite="https://www.facebook.com/ashapridealliance/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ashapridealliance/">Asha Pride Alliance</a></blockquote></div>
                 </Col>
-                <Col lg='4'>
+                <Col lg='4' md='6'>
                     <div class='side-panel'>
-                        <br/>
-                        <h3><Glyphicon glyph='glyphicon glyphicon-phone'></Glyphicon> &nbsp;&nbsp; 555 - 555 - 5555</h3>
+                        <br/><br/>
+                        <Glyphicon glyph='glyphicon glyphicon-phone'></Glyphicon> <span>  (678)  632 - 3837</span>
+                        <br/><br/>
+                        <Glyphicon glyph='glyphicon glyphicon-envelope'></Glyphicon><span>  ashapridealliance@gmail.com</span>
                     </div>
                 </Col>
             </Row>

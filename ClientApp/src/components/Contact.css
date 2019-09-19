@@ -12,11 +12,21 @@ div.header {
 div.side-panel {
     background-image: linear-gradient(to bottom,darkcyan 0,DarkTurquoise 100%) !important;
     color: white;
-    text-align: center;
+    text-align: left;
     margin-top:10%;
     height: 400px;
     opacity: .6;
     border-radius: 20px;
+}
+
+div.side-panel > span {
+    margin-left:7px;
+    font-size:14pt;
+
+}
+
+div.side-panel > span.glyphicon {
+    font-size: 16pt;
 }
 
 div.fb-page {
