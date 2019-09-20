@@ -1,4 +1,8 @@
 ﻿
+.navbar li {
+    margin: 0px !important;
+}
+
 .navbar li .glyphicon {
     margin-right: 10px;
 }
@@ -11,11 +15,6 @@
     box-shadow: 10px 0px 5px 0px gray;
 }
 
-.navbar-brand {
-    color: white !important;
-    font-weight: bold;
-    text-align: center;
-}
 
 /* Highlighting rules for nav menu items */
 .navbar .navbar-nav .active a,
@@ -32,6 +31,7 @@
     font-weight: bold;
     font-family: 'Varela Round', sans-serif;
     opacity: 1;
+    border-radius: 0px;
 }
 
     .navbar-default .navbar-nav > li > a:hover {

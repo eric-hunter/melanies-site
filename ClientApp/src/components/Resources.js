@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Col, Grid, Row } from 'react-bootstrap';
-import { Accordion } from './Accordion';
+import { PopupGrid } from './PopupGrid.js';
 
 
 export class Resources extends Component {
@@ -21,7 +21,7 @@ export class Resources extends Component {
 
     render() {
         return (
-            <Accordion
+            <PopupGrid
                 sectionTitles = {this.sectionTitles}
                 sectionBodies = {this.sectionBodies}/>
         );

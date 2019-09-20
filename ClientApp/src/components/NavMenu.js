@@ -11,16 +11,20 @@ export class NavMenu extends Component {
     return (
       <Navbar fixedTop fluid collapseOnSelect>
         <Navbar.Header>
-            <Navbar.Brand>
-                Melanie L. Wallace RC, MSW
-            </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
+
+            <br/>
             <LinkContainer to={'/'} exact>
               <NavItem>
-                <Glyphicon glyph='user' /> About
+                <Glyphicon glyph='user' /> Melanie L. Wallace RC, MSW        
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to={'/trainings'}>
+              <NavItem>
+                <Glyphicon glyph='list-alt' /> Trainings
               </NavItem>
             </LinkContainer>
             <LinkContainer to={'/resources'}>
