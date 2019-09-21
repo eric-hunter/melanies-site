@@ -24,7 +24,7 @@ export class NavMenu extends Component {
             </LinkContainer>
             <LinkContainer to={'/trainings'}>
               <NavItem>
-                <Glyphicon glyph='list-alt' /> Trainings
+                <Glyphicon glyph='list-alt' /> Services
               </NavItem>
             </LinkContainer>
             <LinkContainer to={'/resources'}>
@@ -34,7 +34,7 @@ export class NavMenu extends Component {
             </LinkContainer>
             <LinkContainer to={'/contact'}>
               <NavItem>
-                <Glyphicon glyph='envelope' /> Contact
+                <Glyphicon glyph='envelope' /> Social Media
               </NavItem>
             </LinkContainer>
           </Nav>

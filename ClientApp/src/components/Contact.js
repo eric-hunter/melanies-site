@@ -21,11 +21,30 @@ export class Contact extends Component {
                 <br/>
                 <br/>
                 <Row>
-                    <Col >
+                    <Col lg='12'>
                         <div className='header'>
                             Contact Me
                         </div>
                     </Col>
+                </Row>
+                <br/>
+                <Row>
+                    <div className='contact-info'>
+                            <span>  
+                                <a href='tel:(678) 632-3837'>
+                                    <Glyphicon glyph='glyphicon glyphicon-phone'></Glyphicon> 
+                                    &nbsp;
+                                    (678) 632-3837
+                                </a>
+                            </span>
+                            <span> 
+                                <a href='mailto:ashapridealliance@gmail.com'>
+                                    <Glyphicon glyph='glyphicon glyphicon-envelope'></Glyphicon>
+                                    &nbsp;
+                                    ashapridealliance@gmail.com
+                                </a>
+                            </span>
+                    </div>
                 </Row>
                 <br/>
                 <br/>
@@ -47,21 +66,6 @@ export class Contact extends Component {
                             data-adapt-container-width="true" 
                             data-hide-cover="false" 
                             data-show-facepile="true"><blockquote cite="https://www.facebook.com/ashapridealliance/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ashapridealliance/">Asha Pride Alliance</a></blockquote></div>
-                    </Col>
-                    <Col lg='4' md='6'>
-                        <div class='side-panel'>
-                            <br/><br/>
-                            <Glyphicon glyph='glyphicon glyphicon-phone'></Glyphicon> 
-                            <span>  
-                                <a href='tel:(678) 632-3837'>(678) 632-3837</a>
-                            </span>
-                            <br/><br/>
-                            {/*Add clipboard thingy*/}
-                            <Glyphicon glyph='glyphicon glyphicon-envelope'></Glyphicon>
-                            <span>  
-                                <a href='mailto:ashapridealliance@gmail.com'>ashapridealliance@gmail.com</a>
-                            </span>
-                        </div>
                     </Col>
                 </Row>
             </div>
