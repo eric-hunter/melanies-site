@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
-import {Form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 
 import './ContactForm.css';
 
@@ -26,6 +25,7 @@ export class ContactForm extends Component {
         this.changeEmail = this.changeEmail.bind(this);
         this.changePhone = this.changePhone.bind(this);
         this.changePreference = this.changePreference.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     //TODO: make dynamic instead of function for ever form field.
@@ -49,9 +49,42 @@ export class ContactForm extends Component {
         this.setState({ preference: e.target.value });
     }
 
+    onSubmit(e) {
+        e.preventDefault();
+
+        let data = {
+            name: this.state.name,
+            interest: this.state.interest,
+            email: this.state.email,
+            phone: this.state.phone,
+            preference: this.state.preference
+        }
+
+        console.log(data);
+
+        fetch('api/Contact/Contact', {
+            method: "POST",
+            data: {
+                viewModel: {
+                    name: this.state.name,
+                    interest: this.state.interest,
+                    email: this.state.email,
+                    phone: this.state.phone,
+                    preference: this.state.preference
+                }
+            }
+        })
+        .then(response => {
+            response.text().then(function (text) {
+                alert(text);
+            });
+        });
+
+    }
+
     render() {
         return (
-            <Form>
+            <form onSubmit={this.onSubmit}>
                 <Row>
                     <Col lg='1'>
                     </Col>
@@ -66,13 +99,13 @@ export class ContactForm extends Component {
                 <Row>
                     <Col lg='1'/>
                     <Col lg='11'>
-                        <label for='interest'>Reason</label>
+                        <label for='interest'>Services Needed</label>
                         <select id='interest' class='form-control' value={this.state.interest} onChange={this.changeInterest}>
                             <option value='None'>-Select-</option>
                             <option value='Book Consultation'>Book Consultation</option>
                             <option value='Appointment'>Appointment</option>
                             <option value='Presentation'>Presentation (ex. workplace/school)</option>
-                            <option value='Group and Individual'>Group or Individual???</option>
+                            <option value='Group and Individual'>Group or Individual Support</option>
                         </select>
                         <br/>
                     </Col>
@@ -117,6 +150,7 @@ export class ContactForm extends Component {
                         <div class='form-group'>
                             <label for='message'>Message</label>
                             <br/>
+                            {/*TODO: limit length, 1000 characters.*/}
                             <textarea 
                                 id='message' 
                                 class='form-control' 
@@ -134,7 +168,7 @@ export class ContactForm extends Component {
                         <Button type='submit'>Submit</Button>
                     </Col>
                 </Row>
-            </Form>
+            </form>
         );
     }
 }
