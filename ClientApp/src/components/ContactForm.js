@@ -54,25 +54,18 @@ export class ContactForm extends Component {
 
         let data = {
             name: this.state.name,
-            interest: this.state.interest,
+            serviceRequested: this.state.interest,
             email: this.state.email,
             phone: this.state.phone,
-            preference: this.state.preference
-        }
-
-        console.log(data);
+            contactPreference: this.state.preference
+        };
 
         fetch('api/Contact/Contact', {
             method: "POST",
-            data: {
-                viewModel: {
-                    name: this.state.name,
-                    interest: this.state.interest,
-                    email: this.state.email,
-                    phone: this.state.phone,
-                    preference: this.state.preference
-                }
-            }
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)      
         })
         .then(response => {
             response.text().then(function (text) {

@@ -22,7 +22,7 @@ namespace melanies_site.Controllers {
         private readonly string modelStateMessage = "Invalid input.";
 
         [HttpPost("[action]")]
-        public ActionResult Contact(ContactFormViewModel viewModel)
+        public ActionResult Contact([FromBody] ContactFormViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -33,7 +33,7 @@ namespace melanies_site.Controllers {
                 return Content(modelStateMessage);
             }
 
-            return Content(successMessage + _configuration["ContactFormEmail"]);
+            return Content(successMessage);
         }
 
     }
