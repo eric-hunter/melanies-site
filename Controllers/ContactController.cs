@@ -1,7 +1,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
+using melanies_site.utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -18,22 +20,20 @@ namespace melanies_site.Controllers {
             _configuration = configuration;
         }
 
-        private readonly string successMessage = "success";
-        private readonly string modelStateMessage = "Invalid input.";
-
         [HttpPost("[action]")]
         public ActionResult Contact([FromBody] ContactFormViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                
+                string email = _configuration["ContactFormEmail"];
+                string password = _configuration["ContactFormEmailPassword"];
             }
             else 
             {
-                return Content(modelStateMessage);
+                return BadRequest();
             }
 
-            return Content(successMessage);
+            return Ok();
         }
 
     }
