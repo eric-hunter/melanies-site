@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using melanies_site.utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using melanies_site.Utilities;
 
 
 namespace melanies_site.Controllers {
@@ -27,6 +27,8 @@ namespace melanies_site.Controllers {
             {
                 string email = _configuration["ContactFormEmail"];
                 string password = _configuration["ContactFormEmailPassword"];
+
+                Email.Send(email, email, password, "TEST", "test");
             }
             else 
             {

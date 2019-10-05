@@ -3,7 +3,7 @@
 using System.Net;
 using System.Net.Mail;
 
-namespace melanies_site.utilities
+namespace melanies_site.Utilities
 {
     public static class Email
     {
@@ -11,6 +11,7 @@ namespace melanies_site.utilities
         {
             var client = new SmtpClient("smtp.gmail.com", 587);
             client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential(from, secret);
 
             var mail = new MailMessage();
