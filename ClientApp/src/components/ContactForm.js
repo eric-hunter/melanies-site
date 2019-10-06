@@ -17,7 +17,8 @@ export class ContactForm extends Component {
             interest: "",
             email: "",
             phone: "",
-            preference: ""
+            preference: "",
+            message: ""
         };
 
         this.changeName = this.changeName.bind(this);
@@ -25,6 +26,7 @@ export class ContactForm extends Component {
         this.changeEmail = this.changeEmail.bind(this);
         this.changePhone = this.changePhone.bind(this);
         this.changePreference = this.changePreference.bind(this);
+        this.changeMessage = this.changeMessage.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -49,6 +51,10 @@ export class ContactForm extends Component {
         this.setState({ preference: e.target.value });
     }
 
+    changeMessage(e) {
+        this.setState({ message: e.target.value });
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -57,7 +63,8 @@ export class ContactForm extends Component {
             serviceRequested: this.state.interest,
             email: this.state.email,
             phone: this.state.phone,
-            contactPreference: this.state.preference
+            contactPreference: this.state.preference,
+            message: this.state.message
         };
 
         fetch('api/Contact/Contact', {
@@ -66,11 +73,6 @@ export class ContactForm extends Component {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)      
-        })
-        .then(response => {
-            response.text().then(function (text) {
-                alert(text);
-            });
         });
 
     }

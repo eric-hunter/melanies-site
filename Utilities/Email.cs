@@ -19,6 +19,7 @@ namespace melanies_site.Utilities
             mail.To.Add(to);
             mail.Subject = subject;
             mail.Body = body;
+            mail.IsBodyHtml = true;
 
             client.Send(mail);
         }

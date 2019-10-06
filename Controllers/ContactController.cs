@@ -25,17 +25,64 @@ namespace melanies_site.Controllers {
         {
             if (ModelState.IsValid)
             {
-                string email = _configuration["ContactFormEmail"];
-                string password = _configuration["ContactFormEmailPassword"];
-
-                Email.Send(email, email, password, "TEST", "test");
+                try 
+                {
+                    string email = _configuration["ContactFormEmail"];
+                    string password = _configuration["ContactFormEmailPassword"];
+                    string body = ConstructEmailBody(viewModel);
+                    Email.Send(email, email, password, "TEST", body);
+                }
+                catch(Exception) 
+                {
+                    return StatusCode(500);
+                }
             }
             else 
             {
                 return BadRequest();
             }
-
             return Ok();
+        }
+
+        private static readonly string EmailMessageFormat = @"
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>{0}</td>
+                </tr>
+                <tr>
+                    <td>Services Needed:</td>
+                    <td>{1}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{2}</td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>{3}</td>
+                </tr>
+                <tr>
+                    <td>Contact Preference:</td>
+                    <td>{4}</td>
+                </tr>
+                <tr>
+                    <td>Message</td>
+                    <td>{5}</td>
+                </tr>
+            </table>
+        ";
+
+        public static string ConstructEmailBody(ContactFormViewModel viewModel)
+        {
+            return String.Format(
+                EmailMessageFormat,
+                viewModel.Name, 
+                viewModel.ServiceRequested, 
+                viewModel.Email,
+                viewModel.Phone,
+                viewModel.ContactPreference,
+                viewModel.Message);
         }
 
     }
