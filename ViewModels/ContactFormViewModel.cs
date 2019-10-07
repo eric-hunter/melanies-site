@@ -9,10 +9,10 @@ public class ContactFormViewModel {
     
     public string ServiceRequested {get; set;}
 
-    [DataType(DataType.EmailAddress)]
+    [EmailAddress]
     public string Email {get;set;}
 
-    [DataType(DataType.PhoneNumber)]
+    [Phone]
     public string Phone {get;set;}
     
     public string ContactPreference {get;set;}
