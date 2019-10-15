@@ -1,12 +1,9 @@
 
 using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using melanies_site.Utilities;
-
+using System.Threading.Tasks;
 
 namespace melanies_site.Controllers {
 
@@ -21,8 +18,12 @@ namespace melanies_site.Controllers {
         }
 
         [HttpPost("[action]")]
-        public ActionResult Contact([FromBody] ContactFormViewModel viewModel)
+        public async Task<ActionResult> Contact([FromBody] ContactFormViewModel viewModel)
         {
+            Grecaptcha.ApiResponse googleResponse = await Grecaptcha.GetGoogleResponseAsync(
+                _configuration["grecaptchaSecret"], 
+                viewModel.GrecaptchaResponse);
+
             if (ModelState.IsValid)
             {
                 try 
@@ -30,7 +31,7 @@ namespace melanies_site.Controllers {
                     string email = _configuration["ContactFormEmail"];
                     string password = _configuration["ContactFormEmailPassword"];
                     string body = ConstructEmailBody(viewModel);
-                    Email.Send(email, email, password, "TEST", body);
+                    Email.Send(email, email, password, "Website Contact Form", body);
                 }
                 catch(Exception) 
                 {

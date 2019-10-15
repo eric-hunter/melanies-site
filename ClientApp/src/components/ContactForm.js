@@ -38,6 +38,15 @@ export class ContactForm extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount() {
+        //google's recaptcha does not re-render when component is reloaded so
+        //we have to do it manually.
+        //https://stackoverflow.com/questions/39505371/google-recaptcha-hides-after-changing-component-via-react-router
+        window.grecaptcha.render('recaptcha-contact', {
+            sitekey: "6LfTrbkUAAAAAA7GAi1Cvlm4S5TnE6lGuaCtDHcw",
+        });
+    }
+
     handleInput (e) {
         const name = e.target.id;
         const value = e.target.value;
@@ -102,14 +111,18 @@ export class ContactForm extends Component {
     onSubmit(e) {
         e.preventDefault();
 
+        const grecaptchaResponse = window.grecaptcha.getResponse();
         const data = {
             name: this.state.name,
             serviceRequested: this.state.interest,
             email: this.state.email,
             phone: this.state.phone,
             contactPreference: this.state.preference,
-            message: this.state.message
+            message: this.state.message,
+            grecaptchaResponse: grecaptchaResponse
         };
+
+        console.log(data);
 
         const response = fetch('api/Contact/Contact', {
             method: "POST",
@@ -134,6 +147,14 @@ export class ContactForm extends Component {
         else if (response.ok) 
         {
             alert("Your request has been received. I will contact you as soon as possible.");
+            this.setState({
+                name: "",
+                interest: "none",
+                email: "",
+                phone: "",
+                preference: "phone or email",
+                message: "",
+            });
         }
         else 
         {
@@ -204,7 +225,7 @@ export class ContactForm extends Component {
                     </Col>
                 </Row>
                 <Row>
-                <Col lg='1'/>
+                    <Col lg='1'/>
                     <Col lg='11'>
                         <div class={`form-group ${this.hasError(this.state.formErrors.message)}`}>
                             <label for='message'>Message</label>
@@ -221,6 +242,13 @@ export class ContactForm extends Component {
                         </div>
                     </Col>
                 </Row>
+                <Row>
+                    <Col lg='1'/>
+                    <Col lg='11'>
+                        <div id='recaptcha-contact' class="g-recaptcha"></div>
+                    </Col>
+                </Row>
+                <br/>
                 <Row>
                     <Col lg='1'/>
                     <Col lg='11'>

@@ -19,5 +19,7 @@ public class ContactFormViewModel {
 
     [StringLength(1000)]
     public string Message {get;set;}
+    [Required]
+    public string GrecaptchaResponse {get;set;}
 
 }

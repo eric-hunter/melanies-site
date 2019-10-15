@@ -65,7 +65,16 @@ export class Contact extends Component {
                             data-small-header="false" 
                             data-adapt-container-width="true" 
                             data-hide-cover="false" 
-                            data-show-facepile="true"><blockquote cite="https://www.facebook.com/ashapridealliance/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ashapridealliance/">Asha Pride Alliance</a></blockquote></div>
+                            data-show-facepile="true">
+                            <blockquote 
+                                cite="https://www.facebook.com/ashapridealliance/" 
+                                class="fb-xfbml-parse-ignore">
+                                <a 
+                                    href="https://www.facebook.com/ashapridealliance/">
+                                        Visit Asha Pride Alliance on Facebook
+                                </a>
+                            </blockquote>
+                        </div>
                     </Col>
                 </Row>
             </div>
