@@ -34,7 +34,7 @@ export class NavMenu extends Component {
             </LinkContainer>
             <LinkContainer to={'/contact'}>
               <NavItem>
-                <Glyphicon glyph='envelope' /> Social Media
+                <Glyphicon glyph='envelope' /> Contact
               </NavItem>
             </LinkContainer>
           </Nav>
