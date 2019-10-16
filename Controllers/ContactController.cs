@@ -24,7 +24,7 @@ namespace melanies_site.Controllers {
                 _configuration["grecaptchaSecret"], 
                 viewModel.GrecaptchaResponse);
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && googleResponse.success)
             {
                 try 
                 {

@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using melanies_site.Utilities;
 
 public class Grecaptcha
     {
@@ -31,20 +28,7 @@ public class Grecaptcha
             writer.Write(postData);
             writer.Close();
 
-            JsonSerializer serializer = new JsonSerializer();
-            
-            ApiResponse responseData = null;
-            using (StreamReader streamReader = new StreamReader(request.GetResponse().GetResponseStream())) 
-            using (JsonReader jsonReader = new JsonTextReader(streamReader))
-            {
-                while (jsonReader.Read())
-                {
-                    if (jsonReader.TokenType == JsonToken.StartObject)
-                    {
-                        responseData = serializer.Deserialize<ApiResponse>(jsonReader);
-                    }                
-                }
-            }
+            ApiResponse responseData = Json.GetJsonFromStream<ApiResponse>(request.GetResponse().GetResponseStream());
             
             return responseData;
         }
@@ -60,6 +44,23 @@ public class Grecaptcha
         //         "https://www.google.com/recaptcha/api/siteverify", request);
 
         //     ApiResponse apiResponse = await response.Content.ReadAsAsync<ApiResponse>();
+        //     return apiResponse;
+        // }
+
+        // public static async Task<ApiResponse> GetGoogleResponseAsync(string secret, string clientResponse)
+        // {   
+        //     var client = HttpClientFactory.Create();
+        //     var request = new {
+        //         secret = secret,
+        //         response = clientResponse
+        //     };
+        //     var response = await client.PostAsJsonAsync(
+        //         "https://www.google.com/recaptcha/api/siteverify", request);
+
+        //     Stream s = await response.Content.ReadAsStreamAsync();
+
+        //     ApiResponse apiResponse = Json.GetJsonFromStream<ApiResponse>(s);
+
         //     return apiResponse;
         // }
     }
