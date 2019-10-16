@@ -21,9 +21,9 @@ export default class App extends Component {
 
             <div id='background'></div>
 
-                <Route exact path='/' component={Home} />
-                <Route exact path='/resources' component={Resources} />
-                <Route exact path='/contact' component={Contact} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/resources' component={Resources} />
+            <Route exact path='/contact' component={Contact} />
         </Layout>
         );
     }
