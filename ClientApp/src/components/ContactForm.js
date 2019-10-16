@@ -19,6 +19,7 @@ export class ContactForm extends Component {
             phone: "",
             preference: "phone or email",
             message: "",
+            grecaptchaResponse: "",
 
             formErrors: {
                 name: "",
@@ -42,9 +43,18 @@ export class ContactForm extends Component {
         //google's recaptcha does not re-render when component is reloaded so
         //we have to do it manually.
         //https://stackoverflow.com/questions/39505371/google-recaptcha-hides-after-changing-component-via-react-router
-        window.grecaptcha.render('recaptcha-contact', {
-            sitekey: "6LfTrbkUAAAAAA7GAi1Cvlm4S5TnE6lGuaCtDHcw",
-        });
+        const _this = this;
+        setTimeout(() =>{
+            window.grecaptcha.render('recaptcha-contact', {
+                sitekey: "6LfTrbkUAAAAAA7GAi1Cvlm4S5TnE6lGuaCtDHcw",
+                callback: function() {
+                    _this.setState({
+                        grecaptchaResponse: window.grecaptcha.getResponse()
+                    },
+                    _this.validateForm);
+                }
+            });
+        }, 1000);
     }
 
     handleInput (e) {
@@ -100,8 +110,10 @@ export class ContactForm extends Component {
                 this.state.nameIsValid &&
                 this.state.emailIsValid &&
                 this.state.phoneIsValid &&
-                this.state.messageIsValid
+                this.state.messageIsValid &&
+                this.state.grecaptchaResponse.length
         });
+
     }
 
     hasError(error) {
@@ -111,7 +123,6 @@ export class ContactForm extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const grecaptchaResponse = window.grecaptcha.getResponse();
         const data = {
             name: this.state.name,
             serviceRequested: this.state.interest,
@@ -119,10 +130,8 @@ export class ContactForm extends Component {
             phone: this.state.phone,
             contactPreference: this.state.preference,
             message: this.state.message,
-            grecaptchaResponse: grecaptchaResponse
+            grecaptchaResponse: this.state.grecaptchaResponse
         };
-
-        console.log(data);
 
         const response = fetch('api/Contact/Contact', {
             method: "POST",
