@@ -11,11 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="$(AspNetCoreAppRuntimeFrameworkVersion)">
-      <IsImplicitlyDefined>true</IsImplicitlyDefined>
-      <PrivateAssets>All</PrivateAssets>
-      <Publish>true</Publish>
-    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.1" />
   </ItemGroup>
