@@ -19,12 +19,6 @@ namespace melanies_site
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.AddDebug();
-                    logging.AddConsole();
-                })
                 .UseStartup<Startup>();
     }
 }
