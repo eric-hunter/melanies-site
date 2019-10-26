@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "engines": {
-        "node": "10.15"
+        "node": "10.16.X"
     },
     "dependencies": {
         "bootstrap": "^3.4.1",
