@@ -28,11 +28,6 @@ namespace melanies_site
 
         }
 
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseStaticFiles(); // For the wwwroot folder
-        }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services, IApplicationBuilder app, IWebHostEnvironment env)
         {
