@@ -25,6 +25,29 @@ namespace melanies_site
                     logging.AddDebug();
                     logging.AddConsole();
                 })
+                .ConfigureAppConfiguration(ConfigConfiguration)
                 .UseStartup<Startup>();
+            
+        static void ConfigConfiguration(WebHostBuilderContext webHostBuilderContext, IConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", false, true)
+                .AddEnvironmentVariables();
+
+            var config = configurationBuilder.Build();
+
+            if (webHostBuilderContext.HostingEnvironment.IsDevelopment())
+            {
+                configurationBuilder.AddUserSecrets<Startup>();
+            }
+            else if (webHostBuilderContext.HostingEnvironment.IsProduction())
+            {
+                configurationBuilder.AddAzureKeyVault(
+                    $"https://{config["azureKeyVault:vault"]}.vault.azure.net/",
+                    config["azureKeyVault:clientId"],
+                    config["azureKeyVault:clientSecret"]
+                );
+            }
+        }
     }
 }
