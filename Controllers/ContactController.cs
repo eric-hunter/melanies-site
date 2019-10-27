@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using melanies_site.Utilities;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace melanies_site.Controllers {
 
@@ -11,10 +12,12 @@ namespace melanies_site.Controllers {
     public class ContactController : Controller {
 
         private readonly IConfiguration _configuration = null;
+        private readonly ILogger _logger = null;
 
-        public ContactController(IConfiguration configuration) 
+        public ContactController(IConfiguration configuration, ILogger logger) 
         {
             _configuration = configuration;
+            _logger = logger;
         }
 
         [HttpPost("[action]")]
@@ -33,8 +36,9 @@ namespace melanies_site.Controllers {
                     string body = ConstructEmailBody(viewModel);
                     Email.Send(email, email, password, "Website Contact Form", body);
                 }
-                catch(Exception) 
+                catch(Exception e) 
                 {
+                    _logger.LogError(e, "Submitting the email for the contact form has failed.");
                     return StatusCode(500);
                 }
             }

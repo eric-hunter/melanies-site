@@ -18,6 +18,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1"/>
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.1"/>
     <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.9.1" />  
   </ItemGroup>
   <ItemGroup>
     <Content Remove="$(SpaRoot)**"/>
