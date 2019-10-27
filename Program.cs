@@ -24,8 +24,7 @@ namespace melanies_site
                     builder.ClearProviders();
                     builder.AddDebug();
                     builder.AddConsole();
-                    builder.AddApplicationInsights("ikey");
-
+                    builder.AddApplicationInsights("210a9fda-b748-4d40-8d51-47f4a36f4bbb");
                 })
                 .ConfigureAppConfiguration(ConfigConfiguration)
                 .UseStartup<Startup>();
