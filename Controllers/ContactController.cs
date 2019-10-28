@@ -14,7 +14,7 @@ namespace melanies_site.Controllers {
         private readonly IConfiguration _configuration = null;
         private readonly ILogger _logger = null;
 
-        public ContactController(IConfiguration configuration, ILogger logger) 
+        public ContactController(IConfiguration configuration, ILogger<ContactController> logger) 
         {
             _configuration = configuration;
             _logger = logger;
@@ -26,6 +26,8 @@ namespace melanies_site.Controllers {
             Grecaptcha.ApiResponse googleResponse = await Grecaptcha.GetGoogleResponseAsync(
                 _configuration["grecaptchaSecret"], 
                 viewModel.GrecaptchaResponse);
+
+            _logger.LogInformation(string.Format("{0} is attempting to complete the contact form.", viewModel.Name));
 
             if (ModelState.IsValid && googleResponse.success)
             {
@@ -44,6 +46,7 @@ namespace melanies_site.Controllers {
             }
             else 
             {
+                _logger.LogWarning(string.Format("Bad Contact Form Data: ModelStateValid: {0} Grecaptcha {1}", ModelState.IsValid, googleResponse.success));
                 return BadRequest();
             }
             return Ok();

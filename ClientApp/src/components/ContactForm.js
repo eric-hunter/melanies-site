@@ -54,7 +54,7 @@ export class ContactForm extends Component {
                     _this.validateForm);
                 }
             });
-        }, 1000);
+        }, 500);
     }
 
     handleInput (e) {
@@ -133,17 +133,27 @@ export class ContactForm extends Component {
             grecaptchaResponse: this.state.grecaptchaResponse
         };
 
-        const response = fetch('api/Contact/Contact', {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)      
-        })
-        .then( response => this.alertUserOnSubmit(response));
+        //TODO: Make a method to make next few lines a one liner.
+        let tokenObject = {};
+        const _this = this;
+        fetch('api/XSRFToken/GetToken')
+        .then(response => {
+            response.json().then(json =>  {
+                tokenObject = json;
+                fetch('api/Contact/Contact', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "RequestVerificationToken" : tokenObject.token
+                    },
+                    body: JSON.stringify(data)      
+                })
+                .then( response => _this.alertUserOnSubmit(_this, response));
+            });
+        });
     }
 
-    alertUserOnSubmit(response) 
+    alertUserOnSubmit(_this, response) 
     {
         if (response.status == 400) 
         {
@@ -153,10 +163,10 @@ export class ContactForm extends Component {
         {
             alert("An internal server error occurred. Please try again later or contact me directly.");    
         }
-        else if (response.ok) 
+        else if (response.status == 200) 
         {
             alert("Your request has been received. I will contact you as soon as possible.");
-            this.setState({
+            _this.setState({
                 name: "",
                 interest: "none",
                 email: "",
