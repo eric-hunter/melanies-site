@@ -42,10 +42,14 @@ namespace melanies_site
             }
             else if (webHostBuilderContext.HostingEnvironment.IsProduction())
             {
+                string keyVault = Environment.GetEnvironmentVariable("APP_AZUREKEYVAULT_NAME");
+                string clientId = Environment.GetEnvironmentVariable("APP_AZUREKEYVAULT_CLIENTID");
+                string clientSecret = Environment.GetEnvironmentVariable("APP_AZUREKEYVAULT_CLIENTSECRET");
+
                 configurationBuilder.AddAzureKeyVault(
-                    $"https://{config["azureKeyVault:vault"]}.vault.azure.net/",
-                    config["azureKeyVault:clientId"],
-                    config["azureKeyVault:clientSecret"]
+                    $"https://{keyVault}.vault.azure.net/",
+                    clientId,
+                    clientSecret
                 );
             }
         }
