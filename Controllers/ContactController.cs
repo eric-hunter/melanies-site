@@ -23,11 +23,20 @@ namespace melanies_site.Controllers {
         [HttpPost("[action]")]
         public async Task<ActionResult> Contact([FromBody] ContactFormViewModel viewModel)
         {
-            Grecaptcha.ApiResponse googleResponse = await Grecaptcha.GetGoogleResponseAsync(
-                _configuration["grecaptchaSecret"], 
-                viewModel.GrecaptchaResponse);
+            Logging.ContactController_LogUserContactFormAttempt(_logger, viewModel.Name);
 
-            _logger.LogInformation(string.Format("{0} is attempting to complete the contact form.", viewModel.Name));
+            Grecaptcha.ApiResponse googleResponse;
+            try
+            {
+                googleResponse = await Grecaptcha.GetGoogleResponseAsync(
+                    _configuration["grecaptchaSecret"], 
+                    viewModel.GrecaptchaResponse);
+            }
+            catch(Exception e)
+            {
+                Logging.ContactController_LogGoogleApiResponseException(_logger, e);
+                return StatusCode(500);
+            }
 
             if (ModelState.IsValid && googleResponse.success)
             {
@@ -37,16 +46,17 @@ namespace melanies_site.Controllers {
                     string password = _configuration["ContactFormEmailPassword"];
                     string body = ConstructEmailBody(viewModel);
                     Email.Send(email, email, password, "Website Contact Form", body);
+                    Logging.ContactController_LogUserEmailSuccess(_logger, viewModel.Name);
                 }
                 catch(Exception e) 
                 {
-                    _logger.LogError(e, "Submitting the email for the contact form has failed.");
+                    Logging.ContactController_LogEmailNotificationFailure(_logger, e);
                     return StatusCode(500);
                 }
             }
             else 
             {
-                _logger.LogWarning(string.Format("Bad Contact Form Data: ModelStateValid: {0} Grecaptcha {1}", ModelState.IsValid, googleResponse.success));
+                Logging.ContactController_LogBadContactFormRequest(_logger, ModelState.IsValid, googleResponse.success);
                 return BadRequest();
             }
             return Ok();

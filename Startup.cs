@@ -16,6 +16,9 @@ namespace melanies_site
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //ikey is set in environment variable 
+            services.AddApplicationInsightsTelemetry();
+
             services.AddMvc(options => 
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
@@ -31,7 +34,7 @@ namespace melanies_site
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger, IAntiforgery antiforgery)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
