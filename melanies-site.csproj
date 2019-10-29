@@ -27,16 +27,6 @@
     <None Include="**/*"/>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="ClientApp\src\Blah.js"/>
-    <None Remove="ClientApp\.gitignore"/>
-    <None Remove="ClientApp\README.md"/>
-    <None Remove="ClientApp\public\index.html"/>
-    <None Remove="ClientApp\src\index.js"/>
-    <None Remove="ClientApp\src\index.css"/>
-    <None Remove="ClientApp\src\App.test.js"/>
-    <None Remove="ClientApp\src\registerServiceWorker.js"/>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ClientApp\src\components\"/>
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
