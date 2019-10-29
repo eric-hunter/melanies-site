@@ -33,16 +33,16 @@ export class Accordion extends Component {
             <Section
                 onClick={(i) => this.handleClick(i)}
                 sectionTitle={this.props.sectionTitles[i]}
-                sectionBody={this.props.sectionBodies[i]}/>
+                sectionBody={this.props.sectionBodies[i]} />
         )
     }
 
-    render () {
+    render() {
         return (
-                <div>
-                    {this.renderSection(0)}
-                </div>
-            );
+            <div>
+                {this.renderSection(0)}
+            </div>
+        );
 
     }
 }

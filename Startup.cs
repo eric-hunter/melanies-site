@@ -15,7 +15,7 @@ namespace melanies_site
             //ikey is set in environment variable 
             services.AddApplicationInsightsTelemetry();
 
-            services.AddMvc(options => 
+            services.AddMvc(options =>
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

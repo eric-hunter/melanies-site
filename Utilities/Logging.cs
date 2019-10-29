@@ -28,7 +28,7 @@ public static class Logging
     }
 
     /* ERROR LOGGING 4000s */
-    public static void ContactController_LogGoogleApiResponseException(ILogger logger, Exception e) 
+    public static void ContactController_LogGoogleApiResponseException(ILogger logger, Exception e)
     {
         var eventId = new EventId(4010, "Recaptcha Failed");
         logger.LogError(eventId, e, "An Exception was thrown when validating user CAPTCHA response.");

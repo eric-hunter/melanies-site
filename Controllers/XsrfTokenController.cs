@@ -5,18 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 public class XsrfTokenController : Controller
 {
     private readonly IAntiforgery _antiforgery;
- 
+
     public XsrfTokenController(IAntiforgery antiforgery)
     {
         _antiforgery = antiforgery;
     }
- 
+
     [HttpGet("[action]")]
     public IActionResult GetToken()
     {
         var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
- 
-        return new ObjectResult(new {
+
+        return new ObjectResult(new
+        {
             token = tokens.RequestToken,
             tokenName = tokens.HeaderName
         });

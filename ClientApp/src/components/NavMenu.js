@@ -1,5 +1,4 @@
 ﻿import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
@@ -16,10 +15,10 @@ export class NavMenu extends Component {
         <Navbar.Collapse>
           <Nav>
 
-            <br/>
+            <br />
             <LinkContainer to={'/'} exact>
               <NavItem>
-                <Glyphicon glyph='user' /> Melanie L. Wallace RC, MSW        
+                <Glyphicon glyph='user' /> Melanie L. Wallace RC, MSW
               </NavItem>
             </LinkContainer>
             <LinkContainer to={'/trainings'}>

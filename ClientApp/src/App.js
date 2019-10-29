@@ -4,8 +4,6 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { Resources } from './components/Resources';
 import { Contact } from './components/Contact';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
 import { Helmet } from 'react-helmet';
 
 export default class App extends Component {
@@ -14,17 +12,17 @@ export default class App extends Component {
     render() {
         return (
 
-        <Layout>
-            <Helmet>
-              <title>Melanie L. Wallace RC, MSW</title>
-            </Helmet>
+            <Layout>
+                <Helmet>
+                    <title>Melanie L. Wallace RC, MSW</title>
+                </Helmet>
 
-            <div id='background'></div>
+                <div id='background'></div>
 
-            <Route exact path='/' component={Home} />
-            <Route exact path='/resources' component={Resources} />
-            <Route exact path='/contact' component={Contact} />
-        </Layout>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/resources' component={Resources} />
+                <Route exact path='/contact' component={Contact} />
+            </Layout>
         );
     }
 }

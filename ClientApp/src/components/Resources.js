@@ -1,7 +1,5 @@
 ﻿
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-import { Col, Grid, Row } from 'react-bootstrap';
 import { PopupGrid } from './PopupGrid.js';
 
 
@@ -22,8 +20,8 @@ export class Resources extends Component {
     render() {
         return (
             <PopupGrid
-                sectionTitles = {this.sectionTitles}
-                sectionBodies = {this.sectionBodies}/>
+                sectionTitles={this.sectionTitles}
+                sectionBodies={this.sectionBodies} />
         );
     }
 }

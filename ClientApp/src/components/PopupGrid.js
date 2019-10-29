@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 function PopupGridSquare(props) {
     return (
@@ -31,18 +31,18 @@ export class PopupGrid extends Component {
         return (
             <PopupGridSquare
                 onClick={(i) => this.handleClick(i)}
-                sectionTitle={this.props.sectionTitles[i]}/>
+                sectionTitle={this.props.sectionTitles[i]} />
         )
     }
 
-    render () {
+    render() {
         return (
-                <div>
-                    <Row>
-                        {this.renderSquare(0)}
-                    </Row>
-                </div>
-            );
+            <div>
+                <Row>
+                    {this.renderSquare(0)}
+                </Row>
+            </div>
+        );
 
     }
 }

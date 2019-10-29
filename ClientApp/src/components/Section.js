@@ -1,6 +1,6 @@
 ﻿
 import React, { Component } from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 import './Section.css';
 
@@ -12,10 +12,10 @@ export class Section extends Component {
                 <div class="section-info-container">
 
                     <h3 class="section-info-header">
-                    <br/>
-                    {this.props.headerText}
-                    <br />
-                    &nbsp;
+                        <br />
+                        {this.props.headerText}
+                        <br />
+                        &nbsp;
                     </h3>
                     <div>
                         {this.props.ul}

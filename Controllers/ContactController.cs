@@ -6,15 +6,17 @@ using melanies_site.Utilities;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace melanies_site.Controllers {
+namespace melanies_site.Controllers
+{
 
     [Route("api/[controller]")]
-    public class ContactController : Controller {
+    public class ContactController : Controller
+    {
 
         private readonly IConfiguration _configuration = null;
         private readonly ILogger _logger = null;
 
-        public ContactController(IConfiguration configuration, ILogger<ContactController> logger) 
+        public ContactController(IConfiguration configuration, ILogger<ContactController> logger)
         {
             _configuration = configuration;
             _logger = logger;
@@ -29,10 +31,10 @@ namespace melanies_site.Controllers {
             try
             {
                 googleResponse = await Grecaptcha.GetGoogleResponseAsync(
-                    _configuration["grecaptchaSecret"], 
+                    _configuration["grecaptchaSecret"],
                     viewModel.GrecaptchaResponse);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logging.ContactController_LogGoogleApiResponseException(_logger, e);
                 return StatusCode(500);
@@ -40,7 +42,7 @@ namespace melanies_site.Controllers {
 
             if (ModelState.IsValid && googleResponse.success)
             {
-                try 
+                try
                 {
                     string email = _configuration["ContactFormEmail"];
                     string password = _configuration["ContactFormEmailPassword"];
@@ -48,13 +50,13 @@ namespace melanies_site.Controllers {
                     Email.Send(email, email, password, "Website Contact Form", body);
                     Logging.ContactController_LogUserEmailSuccess(_logger, viewModel.Name);
                 }
-                catch(Exception e) 
+                catch (Exception e)
                 {
                     Logging.ContactController_LogEmailNotificationFailure(_logger, e);
                     return StatusCode(500);
                 }
             }
-            else 
+            else
             {
                 Logging.ContactController_LogBadContactFormRequest(_logger, ModelState.IsValid, googleResponse.success);
                 return BadRequest();
@@ -95,8 +97,8 @@ namespace melanies_site.Controllers {
         {
             return String.Format(
                 EmailMessageFormat,
-                viewModel.Name, 
-                viewModel.ServiceRequested, 
+                viewModel.Name,
+                viewModel.ServiceRequested,
                 viewModel.Email,
                 viewModel.Phone,
                 viewModel.ContactPreference,

@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +24,7 @@ namespace melanies_site
                 })
                 .ConfigureAppConfiguration(ConfigConfiguration)
                 .UseStartup<Startup>();
-            
+
         static void ConfigConfiguration(WebHostBuilderContext webHostBuilderContext, IConfigurationBuilder configurationBuilder)
         {
             configurationBuilder.SetBasePath(Directory.GetCurrentDirectory())
