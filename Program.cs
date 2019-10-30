@@ -21,6 +21,7 @@ namespace melanies_site
                     builder.ClearProviders();
                     builder.AddDebug();
                     builder.AddConsole();
+                    builder.AddEventSourceLogger();
                 })
                 .ConfigureAppConfiguration(ConfigConfiguration)
                 .UseStartup<Startup>();
