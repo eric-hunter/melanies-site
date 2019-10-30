@@ -21,7 +21,7 @@ export class Contact extends Component {
                 <br />
                 <br />
                 <Row>
-                    <Col lg='12'>
+                    <Col lg={12}>
                         <div className='header'>
                             Contact Me
                         </div>
@@ -49,12 +49,12 @@ export class Contact extends Component {
                 <br />
                 <br />
                 <Row>
-                    <Col lg='4' sm='12'>
+                    <Col lg={4} sm={12}>
                         <ContactForm>
                         </ContactForm>
                     </Col>
                     <br />
-                    <Col lg='4' md='6'>
+                    <Col lg={4} md={6}>
 
                         <div
                             class="fb-page"

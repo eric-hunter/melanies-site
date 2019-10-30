@@ -9,9 +9,9 @@ export class Section extends Component {
     render() {
         return (
             <Col sm={12} md={12} lg={4}>
-                <div class="section-info-container">
+                <div className="section-info-container">
 
-                    <h3 class="section-info-header">
+                    <h3 className="section-info-header">
                         <br />
                         {this.props.headerText}
                         <br />

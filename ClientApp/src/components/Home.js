@@ -16,12 +16,12 @@ export class Home extends Component {
                 <Row>
                     <Col sm={12} md={6} lg={4}>
                         {/* Pic */}
-                        <div class="photo-container">
-                            <img id='pic' src={Pic} />
+                        <div className="photo-container">
+                            <img id='pic' src={Pic} alt="Melanie Wallace" />
                         </div>
                     </Col>
                     <Col sm={12} md={6} lg={7}>
-                        <div class="bio-container">
+                        <div className="bio-container">
 
                             {/* Titles */}
                             <h2 id='Name'>

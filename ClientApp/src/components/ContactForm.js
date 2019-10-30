@@ -79,11 +79,11 @@ export class ContactForm extends Component {
                 fieldValidationErrors.name = nameIsValid ? "" : "Name can not be blank.";
                 break;
             case 'email':
-                emailIsValid = (value.trim().length == 0 || value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) && value.length < 256;
+                emailIsValid = (value.trim().length === 0 || value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) && value.length < 256;
                 fieldValidationErrors.email = emailIsValid ? "" : "Email is not correctly formatted.";
                 break;
             case 'phone':
-                phoneIsValid = value.trim().length == 0 || value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
+                phoneIsValid = value.trim().length === 0 || value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
                 fieldValidationErrors.phone = phoneIsValid ? "" : "The phone number you entered is not formatted correctly.";
                 break;
             case 'message':
@@ -155,13 +155,13 @@ export class ContactForm extends Component {
     }
 
     alertUserOnSubmit(_this, response) {
-        if (response.status == 400) {
+        if (response.status === 400) {
             alert("There was a problem with your input. Please review or contact me directly.");
         }
-        else if (response.status == 500) {
+        else if (response.status === 500) {
             alert("An internal server error occurred. Please try again later or contact me directly.");
         }
-        else if (response.status == 200) {
+        else if (response.status === 200) {
             alert("Your request has been received. I will contact you as soon as possible.");
             _this.setState({
                 name: "",
@@ -181,21 +181,21 @@ export class ContactForm extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <Row>
-                    <Col lg='1'>
+                    <Col lg={1}>
                     </Col>
-                    <Col lg='11'>
+                    <Col lg={11}>
                         <div className={`form-group ${this.hasError(this.state.formErrors.name)}`}>
-                            <label for='name'>Name</label>
+                            <label htmlFor='name'>Name</label>
                             <br />
-                            <input id='name' class='form-control' type='text' value={this.state.name} onChange={this.handleInput} />
+                            <input id='name' className='form-control' type='text' value={this.state.name} onChange={this.handleInput} />
                         </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
-                        <label for='interest'>Services Needed</label>
-                        <select id='interest' class='form-control' value={this.state.interest} onChange={this.handleInput}>
+                    <Col lg={1} />
+                    <Col lg={11}>
+                        <label htmlFor='interest'>Services Needed</label>
+                        <select id='interest' className='form-control' value={this.state.interest} onChange={this.handleInput}>
                             <option value='None'>-Select-</option>
                             <option value='Book Consultation'>Book Consultation</option>
                             <option value='Appointment'>Appointment</option>
@@ -206,32 +206,32 @@ export class ContactForm extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
-                        <div class={`form-group ${this.hasError(this.state.formErrors.email)}`}>
-                            <label for='email'>Email</label>
+                    <Col lg={1} />
+                    <Col lg={11}>
+                        <div className={`form-group ${this.hasError(this.state.formErrors.email)}`}>
+                            <label htmlFor='email'>Email</label>
                             <br />
-                            <input id='email' class='form-control' type='text' value={this.state.email} onChange={this.handleInput} />
+                            <input id='email' className='form-control' type='text' value={this.state.email} onChange={this.handleInput} />
                         </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
-                        <div class={`form-group ${this.hasError(this.state.formErrors.phone)}`}>
-                            <label for='phone'>Phone</label>
+                    <Col lg={1} />
+                    <Col lg={11}>
+                        <div className={`form-group ${this.hasError(this.state.formErrors.phone)}`}>
+                            <label htmlFor='phone'>Phone</label>
                             <br />
-                            <input id='phone' class='form-control' type='text' value={this.state.phone} onChange={this.handleInput} />
+                            <input id='phone' className='form-control' type='text' value={this.state.phone} onChange={this.handleInput} />
                         </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
-                        <div class='form-group'>
-                            <label for='preference'>Contact Preference</label>
+                    <Col lg={1} />
+                    <Col lg={11}>
+                        <div className='form-group'>
+                            <label htmlFor='preference'>Contact Preference</label>
                             <br />
-                            <select id='preference' class='form-control' value={this.state.preference} onChange={this.handleInput}>
+                            <select id='preference' className='form-control' value={this.state.preference} onChange={this.handleInput}>
                                 <option value='phone or email'>-Select-</option>
                                 <option value='phone'>Phone</option>
                                 <option value='email'>Email</option>
@@ -240,15 +240,15 @@ export class ContactForm extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
-                        <div class={`form-group ${this.hasError(this.state.formErrors.message)}`}>
-                            <label for='message'>Message</label>
+                    <Col lg={1} />
+                    <Col lg={11}>
+                        <div className={`form-group ${this.hasError(this.state.formErrors.message)}`}>
+                            <label htmlFor='message'>Message</label>
                             <br />
                             {/*TODO: limit length, 1000 characters.*/}
                             <textarea
                                 id='message'
-                                class='form-control'
+                                className='form-control'
                                 value={this.state.message}
                                 onChange={this.handleInput}
                                 rows={4}
@@ -258,15 +258,15 @@ export class ContactForm extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
-                        <div id='recaptcha-contact' class="g-recaptcha"></div>
+                    <Col lg={1} />
+                    <Col lg={11}>
+                        <div id='recaptcha-contact' className="g-recaptcha"></div>
                     </Col>
                 </Row>
                 <br />
                 <Row>
-                    <Col lg='1' />
-                    <Col lg='11'>
+                    <Col lg={1} />
+                    <Col lg={11}>
                         <Button type='submit' disabled={!this.state.formIsValid}>Submit</Button>
                     </Col>
                 </Row>

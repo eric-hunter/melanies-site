@@ -14,8 +14,6 @@ export class NavMenu extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-
-            <br />
             <LinkContainer to={'/'} exact>
               <NavItem>
                 <Glyphicon glyph='user' /> Melanie L. Wallace RC, MSW
