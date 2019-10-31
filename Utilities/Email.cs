@@ -2,6 +2,9 @@
 
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace melanies_site.Utilities
 {
@@ -22,6 +25,13 @@ namespace melanies_site.Utilities
             mail.IsBodyHtml = true;
 
             client.Send(mail);
+        }
+
+        public static async Task SendGridSendAsync(string apiKey, string from, string to, string subject, string body)
+        {
+            var client = new SendGridClient(apiKey);
+            var message = MailHelper.CreateSingleEmail(new EmailAddress(from), new EmailAddress(to), subject, body, body);
+            var response = await client.SendEmailAsync(message);
         }
     }
 }

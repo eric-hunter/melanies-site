@@ -45,9 +45,8 @@ namespace melanies_site.Controllers
                 try
                 {
                     string email = _configuration["ContactFormEmail"];
-                    string password = _configuration["ContactFormEmailPassword"];
                     string body = ConstructEmailBody(viewModel);
-                    Email.Send(email, email, password, "Website Contact Form", body);
+                    await Email.SendGridSendAsync(_configuration["SendGridKey"], email, email, "Website Contact Form", body);
                     Logging.ContactController_LogUserEmailSuccess(_logger, viewModel.Name);
                 }
                 catch (Exception e)
