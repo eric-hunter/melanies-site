@@ -19,14 +19,14 @@ export class NavMenu extends Component {
                 <Glyphicon glyph='user' /> Melanie L. Wallace RC, MSW
               </NavItem>
             </LinkContainer>
-            <LinkContainer to={'/trainings'}>
+            <LinkContainer to={'/services'}>
               <NavItem>
                 <Glyphicon glyph='list-alt' /> Services
               </NavItem>
             </LinkContainer>
-            <LinkContainer to={'/resources'}>
+            <LinkContainer to={'/trainings'}>
               <NavItem>
-                <Glyphicon glyph='folder-open' /> Resources
+                <Glyphicon glyph='folder-open' /> Trainings
               </NavItem>
             </LinkContainer>
             <LinkContainer to={'/contact'}>
